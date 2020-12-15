@@ -32,15 +32,16 @@ namespace Przelicznik_wieku
             
             if (!string.IsNullOrEmpty(result) && !result.StartsWith('O'))
             {
-               
-                MessageBox.Show(result);
+
+                ResultTextBox.Text = result;
             }
             else
             {
                 int days = Calculator.CalculateDays(YearText.Text, MonthText.Text, DayText.Text, HourText.Text);
-                
-                MessageBox.Show(result + $"\nYou were born { days } days ago { days * 24 * 3600}");
+
+                ResultTextBox.Text = result + $"\nYou were born { days } days ago { days * 24 * 3600}";
             }
+            
            
         }
     }
