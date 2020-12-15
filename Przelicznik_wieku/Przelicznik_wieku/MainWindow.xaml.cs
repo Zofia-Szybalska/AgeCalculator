@@ -30,20 +30,16 @@ namespace Przelicznik_wieku
         {
             var result = CheckingDate.IsDateOkay(YearText.Text, MonthText.Text, DayText.Text, HourText.Text);
             
-            if (!string.IsNullOrEmpty(result))
+            if (!string.IsNullOrEmpty(result) && !result.StartsWith('O'))
             {
                
                 MessageBox.Show(result);
             }
             else
             {
-                DateTime current = DateTime.Now;
-                String BirthDateString = $"{ DayText.Text }-{ MonthText.Text }-{ YearText.Text }-{ HourText.Text}";
-                DateTime BirthDate = DateTime.Parse(BirthDateString);
-                TimeSpan elapsed = current.Subtract(BirthDate);
-                double daysAgo = elapsed.TotalDays;
-                int days = Convert.ToInt32(daysAgo); 
-                MessageBox.Show($"You were born {daysAgo.ToString("0") } days ago { days * 24 * 3600}");
+                int days = Calculator.CalculateDays(YearText.Text, MonthText.Text, DayText.Text, HourText.Text);
+                
+                MessageBox.Show(result + $"\nYou were born { days } days ago { days * 24 * 3600}");
             }
            
         }

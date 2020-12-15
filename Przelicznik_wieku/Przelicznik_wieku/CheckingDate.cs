@@ -33,7 +33,13 @@ namespace Przelicznik_wieku
                 return "Jesten na 10 milionów procent pewnien, że ten miesiąc nie ma aż tylu dni.";
             }
 
-            return "";
+            if (month == current.Month && day == current.Day)
+            {
+                return "O, z tego wynika, że na 10 milionów procent masz dzisiaj urodziny, wszystkiego najlepszego. ";
+            }
+                
+
+            return null;
         }
     }
 }
