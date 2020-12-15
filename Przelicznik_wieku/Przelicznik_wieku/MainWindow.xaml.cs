@@ -23,6 +23,29 @@ namespace Przelicznik_wieku
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            var result = CheckingDate.IsDateOkay(YearText.Text, MonthText.Text, DayText.Text, HourText.Text);
+            
+            if (!string.IsNullOrEmpty(result))
+            {
+               
+                MessageBox.Show(result);
+            }
+            else
+            {
+                DateTime current = DateTime.Now;
+                String BirthDateString = $"{ DayText.Text }-{ MonthText.Text }-{ YearText.Text }-{ HourText.Text}";
+                DateTime BirthDate = DateTime.Parse(BirthDateString);
+                TimeSpan elapsed = current.Subtract(BirthDate);
+                double daysAgo = elapsed.TotalDays;
+                int days = Convert.ToInt32(daysAgo); 
+                MessageBox.Show($"You were born {daysAgo.ToString("0") } days ago { days * 24 * 3600}");
+            }
+           
         }
     }
 }
