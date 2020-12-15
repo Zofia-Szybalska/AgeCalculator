@@ -10,6 +10,7 @@
     <Border Padding="10">
         <StackPanel>
 
+            <!-- Pewnie tekst tu jeszcze zmienie to na razie robocze -->
             <TextBlock HorizontalAlignment="Center" Text="Enter your birth date:" Margin="0 0 0 10" FontWeight="Bold" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch"/>
 
             <Grid>
@@ -30,6 +31,7 @@
                 <!-- Text boxes -->
                 <StackPanel Grid.Column="1">
                     <TextBox Margin="0 0 0 5" x:Name="YearText" Padding="1 0 1 0" />
+                    <!--Myślałam, żeby zrobić z miesiąca combobox, muszę tylko go ogarnąć-->
                     <TextBox Margin="0 5 0 5" x:Name="MonthText" Padding="1 0 1 0" />
                     <TextBox Margin="0 5 0 5" x:Name="DayText" Padding="1 0 1 0" />
                     <TextBox Margin="0 5 0 0" x:Name="HourText" Padding="1 0 1 0" />
@@ -39,24 +41,9 @@
             <Button x:Name="SubmitButton" Content="Submit" Margin="0 10 0 0"
                         Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="6"
                         Click="SubmitButton_Click"/>
-            <TextBlock Text="Próba" x:Name="ResultTextBox" Padding="5" Margin="0 20 0 0" HorizontalAlignment="Center" TextWrapping="Wrap"/>
-            <!--<StackPanel Margin="10,0,0,0">
-                
-                    <MediaElement Margin="20 0" Name="myMediaElement" >
-                        <MediaElement.Triggers>
-                            <EventTrigger RoutedEvent="MediaElement.Loaded">
-                                <EventTrigger.Actions>
-                                    <BeginStoryboard>
-                                        <Storyboard >
-                                            <MediaTimeline  Source="C:\Users\Zosia\Desktop\Wszystko i nic\That's precious.mp4 " Storyboard.TargetName="myMediaElement" RepeatBehavior="Forever" />
-                                        </Storyboard>
-                                    </BeginStoryboard>
-                                </EventTrigger.Actions>
-                            </EventTrigger>
-                        </MediaElement.Triggers>
-                    </MediaElement>
-
-            </StackPanel>-->
+            <TextBlock x:Name="ResultTextBox" Padding="5" Margin="0 20 0 0" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+            
         </StackPanel>
     </Border>    
 </Window>
+    <!--No i ogarnęłabym sobie jakieś coś, żeby ładniej wyglądało-->

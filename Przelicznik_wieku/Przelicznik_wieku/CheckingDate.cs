@@ -19,23 +19,24 @@ namespace Przelicznik_wieku
                (year == current.Year && month == current.Month && day > current.Day) ||
                (year == current.Year && month == current.Month && day == current.Day && hour > current.Hour))
             {
-                return "Jestem pewny na 10 milionów procent, że ta data jeszcze nie nastąpiła.";
+                return "You couldn't have been born in the future, could you?";
                 
             }
             //Sprawdzanie czy data nie jest zbyt odległa w czasie
             else if( year < (int)current.Year - 150)
             {
-                return "Jestem pewny na 10 milionów procent, że wtedy nie było cię jeszcze na świecie.";
+                return "You surely have not been born so long ago.";
             }
             //Sprawdzanie czy w podanym miesiącu może być tyle dni
             if(DateTime.DaysInMonth(year, month) < day)
             {
-                return "Jesten na 10 milionów procent pewnien, że ten miesiąc nie ma aż tylu dni.";
+                //Myślałam żeby napisać tu w jakim miesiącu bo tak, ale muszę tego comboboxa ogarnąć najpierw, przynajmniej tak mi się wydaje
+                return "You have entered wrong day for this month.";
             }
 
             if (month == current.Month && day == current.Day)
             {
-                return "O, z tego wynika, że na 10 milionów procent masz dzisiaj urodziny, wszystkiego najlepszego. ";
+                return "It seems that you have birthday today, happy birthday!";
             }
                 
 

@@ -25,12 +25,12 @@ namespace Przelicznik_wieku
             InitializeComponent();
 
         }
-
+        //To może wyglądać inaczej, w sumie chciałam tylko sprawdzić czy te inne rzeczy dobrze działają, no jeszcze ten miesiąc i combobox
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             var result = CheckingDate.IsDateOkay(YearText.Text, MonthText.Text, DayText.Text, HourText.Text);
             
-            if (!string.IsNullOrEmpty(result) && !result.StartsWith('O'))
+            if (!string.IsNullOrEmpty(result) && !result.StartsWith('I'))
             {
 
                 ResultTextBox.Text = result;
@@ -38,8 +38,11 @@ namespace Przelicznik_wieku
             else
             {
                 int days = Calculator.CalculateDays(YearText.Text, MonthText.Text, DayText.Text, HourText.Text);
-
-                ResultTextBox.Text = result + $"\nYou were born { days } days ago { days * 24 * 3600}";
+                if (result.StartsWith('I'))
+                {
+                    ResultTextBox.Text = result + $"\nYou were born { days } days ago { days * 24 * 3600}";
+                }
+                ResultTextBox.Text = $"You were born { days } days ago { days * 24 * 3600}";
             }
             
            
