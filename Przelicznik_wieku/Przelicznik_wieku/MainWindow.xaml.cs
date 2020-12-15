@@ -40,9 +40,9 @@ namespace Przelicznik_wieku
                 int days = Calculator.CalculateDays(YearText.Text, MonthText.Text, DayText.Text, HourText.Text);
                 if (result.StartsWith('I'))
                 {
-                    ResultTextBox.Text = result + $"\nYou were born { days } days ago { days * 24 * 3600}";
+                    ResultTextBox.Text = result + $"\nYou were born { days } days ago with is{ days * 24 * 3600} seconds.";
                 }
-                ResultTextBox.Text = $"You were born { days } days ago { days * 24 * 3600}";
+                ResultTextBox.Text = $"You were born { days } days ago with is{ days * 24 * 3600} seconds.";
             }
             
            
