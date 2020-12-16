@@ -12,7 +12,7 @@ namespace Przelicznik_wieku
             int year = int.Parse(yeartext);
             int day = int.Parse(daytext);
             int hour = int.Parse(hourtext);
-            //Sprawdzanie czy data nie jest w przyszłośći
+            //Sprawdzanie czy data nie jest w przyszłości
             if (year > current.Year || 
                (year == current.Year && month > current.Month) || 
                (year == current.Year && month == current.Month && day > current.Day) ||
@@ -29,7 +29,6 @@ namespace Przelicznik_wieku
             //Sprawdzanie czy w podanym miesiącu może być tyle dni
             if(DateTime.DaysInMonth(year, month) < day)
             {
-                //Myślałam żeby napisać tu w jakim miesiącu bo tak, ale muszę tego comboboxa ogarnąć najpierw, przynajmniej tak mi się wydaje
                 return monthtext + " dose not have so many days.";
             }
 
