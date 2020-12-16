@@ -15,21 +15,18 @@ using System.Windows.Shapes;
 
 namespace Przelicznik_wieku
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        
         public MainWindow()
         {
             InitializeComponent();
-
         }
-        //To może wyglądać inaczej, w sumie chciałam tylko sprawdzić czy te inne rzeczy dobrze działają, no jeszcze ten miesiąc i combobox
+        //To może wyglądać inaczej, w sumie chciałam tylko sprawdzić czy te inne rzeczy dobrze działają
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            var result = CheckingDate.IsDateOkay(YearText.Text, MonthText.Text, DayText.Text, HourText.Text);
-            
+            var result = CheckingDate.IsDateOkay(YearText.Text, MonthText.SelectedIndex + 1, DayText.Text, HourText.Text, MonthText.Text);
+
             if (!string.IsNullOrEmpty(result) && !result.StartsWith('I'))
             {
 
@@ -37,15 +34,20 @@ namespace Przelicznik_wieku
             }
             else
             {
-                int days = Calculator.CalculateDays(YearText.Text, MonthText.Text, DayText.Text, HourText.Text);
+                int days = Calculator.CalculateDays(YearText.Text, MonthText.SelectedIndex + 1, DayText.Text, HourText.Text);
                 if (result.StartsWith('I'))
                 {
-                    ResultTextBox.Text = result + $"\nYou were born { days } days ago with is{ days * 24 * 3600} seconds.";
+                    ResultTextBox.Text = result + $"\nYou were born { days } days ago with is { days * 24 * 3600} seconds.";
                 }
-                ResultTextBox.Text = $"You were born { days } days ago with is{ days * 24 * 3600} seconds.";
+                else
+                {
+                    ResultTextBox.Text = $"You were born { days } days ago with is { days * 24 * 3600} seconds.";
+                }
             }
             
-           
+
+
         }
+        
     }
 }

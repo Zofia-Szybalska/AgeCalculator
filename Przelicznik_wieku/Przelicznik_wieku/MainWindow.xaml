@@ -31,8 +31,20 @@
                 <!-- Text boxes -->
                 <StackPanel Grid.Column="1">
                     <TextBox Margin="0 0 0 5" x:Name="YearText" Padding="1 0 1 0" />
-                    <!--Myślałam, żeby zrobić z miesiąca combobox, muszę tylko go ogarnąć-->
-                    <TextBox Margin="0 5 0 5" x:Name="MonthText" Padding="1 0 1 0" />
+                    <ComboBox Margin="0 5 0 5" x:Name="MonthText" Padding="5 0 2 2" >
+                        <ComboBoxItem>January</ComboBoxItem>
+                        <ComboBoxItem>February</ComboBoxItem>
+                        <ComboBoxItem>March</ComboBoxItem>
+                        <ComboBoxItem>April</ComboBoxItem>
+                        <ComboBoxItem>May</ComboBoxItem>
+                        <ComboBoxItem>June</ComboBoxItem>
+                        <ComboBoxItem>July</ComboBoxItem>
+                        <ComboBoxItem>August</ComboBoxItem>
+                        <ComboBoxItem>September</ComboBoxItem>
+                        <ComboBoxItem>Obtober</ComboBoxItem>
+                        <ComboBoxItem>November</ComboBoxItem>
+                        <ComboBoxItem>December</ComboBoxItem>
+                    </ComboBox>
                     <TextBox Margin="0 5 0 5" x:Name="DayText" Padding="1 0 1 0" />
                     <TextBox Margin="0 5 0 0" x:Name="HourText" Padding="1 0 1 0" />
                 </StackPanel>

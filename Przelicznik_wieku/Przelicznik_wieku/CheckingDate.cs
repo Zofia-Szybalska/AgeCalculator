@@ -6,11 +6,10 @@ namespace Przelicznik_wieku
 {
     class CheckingDate
     {
-       public static string IsDateOkay(string yeartext, string monthtext, string daytext, string hourtext)
+       public static string IsDateOkay(string yeartext, int month, string daytext, string hourtext, string monthtext)
         {
             var current = DateTime.Now;
             int year = int.Parse(yeartext);
-            int month = int.Parse(monthtext);
             int day = int.Parse(daytext);
             int hour = int.Parse(hourtext);
             //Sprawdzanie czy data nie jest w przyszłośći
@@ -31,7 +30,7 @@ namespace Przelicznik_wieku
             if(DateTime.DaysInMonth(year, month) < day)
             {
                 //Myślałam żeby napisać tu w jakim miesiącu bo tak, ale muszę tego comboboxa ogarnąć najpierw, przynajmniej tak mi się wydaje
-                return "You have entered wrong day for this month.";
+                return monthtext + " dose not have so many days.";
             }
 
             if (month == current.Month && day == current.Day)
