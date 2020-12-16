@@ -13,7 +13,15 @@ namespace Przelicznik_wieku
             DateTime current = DateTime.Now;
             string monthtext = month.ToString();
             String BirthDateString = yeartext + '-' + monthtext + '-' + daytext + '-' + hourtext;
-            DateTime BirthDate = DateTime.ParseExact(BirthDateString,"yyyy-M-d-H", null);
+            DateTime BirthDate;
+            try
+            {
+                BirthDate = DateTime.ParseExact(BirthDateString, "yyyy-M-d-H:m", null);
+            }
+            catch (FormatException)
+            {
+                BirthDate = DateTime.ParseExact(BirthDateString, "yyyy-M-d-H", null);
+            }
             TimeSpan elapsed = current.Subtract(BirthDate);
             double daysAgo = elapsed.TotalDays;
             return Convert.ToInt32(daysAgo);
