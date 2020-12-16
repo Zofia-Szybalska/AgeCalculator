@@ -8,10 +8,21 @@ namespace Przelicznik_wieku
     {
        public static string IsDateOkay(string yeartext, int month, string daytext, string hourtext, string monthtext)
         {
+            //Sprawdza czy wszystkie argumenty zostały podane
+            if(string.IsNullOrEmpty(yeartext) || string.IsNullOrEmpty(monthtext) || string.IsNullOrEmpty(daytext) || string.IsNullOrEmpty(hourtext))
+            {
+                return "You have lef one of the spots empty, please don't do that.";
+            }
             var current = DateTime.Now;
-            int year = int.Parse(yeartext);
-            int day = int.Parse(daytext);
-            int hour = int.Parse(hourtext);
+            bool yearparse = int.TryParse(yeartext, out int year);
+            bool dayparse = int.TryParse(daytext, out int day);
+            bool hourparse = int.TryParse(hourtext, out int hour);
+            //Sprawdza czy wszystkie argumenty są liczbami
+            if(!yearparse || !dayparse || !hourparse)
+            {
+                return "You have entered wrog value, pleas enter only numbers.";
+            }
+            
             //Sprawdzanie czy data nie jest w przyszłości
             if (year > current.Year || 
                (year == current.Year && month > current.Month) || 

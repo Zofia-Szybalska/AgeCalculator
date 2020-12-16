@@ -35,7 +35,7 @@ namespace Przelicznik_wieku
             else
             {
                 int days = Calculator.CalculateDays(YearText.Text, MonthText.SelectedIndex + 1, DayText.Text, HourText.Text);
-                if (result.StartsWith('I'))
+                if (!string.IsNullOrEmpty(result))
                 {
                     ResultTextBox.Text = result + $"\nYou were born { days } days ago with is { days * 24 * 3600} seconds.";
                 }
