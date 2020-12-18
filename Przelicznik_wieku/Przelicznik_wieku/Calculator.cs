@@ -7,29 +7,39 @@ namespace Przelicznik_wieku
 {
     class Calculator
     {
-        public static int CalculateDays(string yeartext, int month, string daytext, string hourtext)
+        public static int CalculateDays(DateTime BirthDate)
         {
-            //Z godziną muszę ogarnąć no i zastanowić się co zrobić z licznikiem dni jak podadzą obecny dzień
             DateTime current = DateTime.Now;
+            TimeSpan elapsed = current - BirthDate;
+            int days = (int)elapsed.TotalDays;
+            return days;
+        }
+        public static BigInteger CalculateSeconds(DateTime BirthDate)
+        {
+            DateTime current = DateTime.Now;
+            TimeSpan interval= current - BirthDate;
+            BigInteger seconds = (int)interval.TotalSeconds;
+            return seconds;
+        }
+        public static DateTime GetDateTime(string yeartext, int month, string daytext, string hourtext)
+        {
             string monthtext = month.ToString();
             String BirthDateString = yeartext + '-' + monthtext + '-' + daytext + '-' + hourtext;
             DateTime BirthDate;
-            try
+            string[] hour = hourtext.Split(':');
+            if (hour.Length == 2)
             {
                 BirthDate = DateTime.ParseExact(BirthDateString, "yyyy-M-d-H:m", null);
             }
-            catch (FormatException)
+            else if (hour.Length == 1)
             {
                 BirthDate = DateTime.ParseExact(BirthDateString, "yyyy-M-d-H", null);
             }
-            TimeSpan elapsed = current.Subtract(BirthDate);
-            double daysAgo = elapsed.TotalDays;
-            return Convert.ToInt32(daysAgo);
-        }
-        public static int BigInteger(string yeartext, int month, string daytext, string hourtext)
-        {
-            //Cóż to jeszcze do napisania
-            return 0;
+            else
+            {
+                BirthDate = DateTime.ParseExact(BirthDateString, "yyyy-M-d-H:m:s", null);
+            }
+            return BirthDate;
         }
     }
 }

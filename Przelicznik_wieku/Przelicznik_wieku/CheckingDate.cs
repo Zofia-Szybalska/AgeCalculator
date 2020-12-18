@@ -11,18 +11,22 @@ namespace Przelicznik_wieku
             //Sprawdza czy wszystkie argumenty zostały podane
             if(string.IsNullOrEmpty(yeartext) || string.IsNullOrEmpty(monthtext) || string.IsNullOrEmpty(daytext) || string.IsNullOrEmpty(hourtext))
             {
-                return "You have lef one of the spots empty, please don't do that.";
+                return "You have left one of the spots empty, please fill all of them.";
             }
             var current = DateTime.Now;
             bool yearparse = int.TryParse(yeartext, out int year);
             bool dayparse = int.TryParse(daytext, out int day);
             int hour = 0;
             bool hourparse = false;
-            int[] hourextended= { 00,00};
+            //Jeżeli została podana godzina z minutami i/lub sekundami
+            int[] hourextended= {00,00,00};
             if (hourtext.Contains(':'))
             {
-                string[] hourextendedtext;
-                hourextendedtext = hourtext.Split(':');
+                string[] hourextendedtext = hourtext.Split(':');
+                if(hourextendedtext.Length>3)
+                {
+                    return "Please enter hour with an accuracy of seconds, not more.";
+                }
                 for (int i = 0; i < hourextendedtext.Length; i++)
                 {
                     hourparse = int.TryParse(hourextendedtext[i], out hourextended[i]);
@@ -37,10 +41,10 @@ namespace Przelicznik_wieku
             {
                 return "You have entered wrog value, pleas enter only numbers.";
             }
-            //Sprawdza czy godzina nie jest za dużą liczbą
-            if (hourextended[0]>23 || hourextended[0] <0 || hourextended[1] < 0 || hourextended[1] > 60 )
+            //Sprawdza czy godzina jest odpowiednią liczbą
+            if (hourextended[0] > 23 || hourextended[0] < 0 || hourextended[1] < 0 || hourextended[1] > 59 || hourextended[2] < 0 || hourextended[2] > 59 )
             {
-                return "You have entered an hour that dose not exist, pleas enter proper hour (from 0:00 to 23:59).";
+                return "You have entered an hour that does not exist, please enter proper hour (from 0:00:00 to 23:59:59).";
             }
             
             //Sprawdza czy data nie jest w przyszłości
@@ -60,15 +64,17 @@ namespace Przelicznik_wieku
             //Sprawdza czy w podanym miesiącu może być tyle dni
             if(DateTime.DaysInMonth(year, month) < day)
             {
-                return monthtext + " dose not have so many days.";
+                return monthtext + " does not have so many days.";
             }
             //Sprawdza czy nie wypadają akurat urodziny
-            if (month == current.Month && day == current.Day)
+            if (year == current.Year && month == current.Month && day == current.Day)
+            {
+                return "It seem that you have been born today, congratulations!";
+            }
+            else if (month == current.Month && day == current.Day)
             {
                 return "It seems that you have birthday today, happy birthday!";
             }
-                
-
             return null;
         }
     }

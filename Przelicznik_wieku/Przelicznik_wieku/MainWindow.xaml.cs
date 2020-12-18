@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -34,14 +35,16 @@ namespace Przelicznik_wieku
             }
             else
             {
-                int days = Calculator.CalculateDays(YearText.Text, MonthText.SelectedIndex + 1, DayText.Text, HourText.Text);
+                var BirthDate = Calculator.GetDateTime(YearText.Text, MonthText.SelectedIndex + 1, DayText.Text, HourText.Text);
+                var days = Calculator.CalculateDays(BirthDate);
+                var seconds = Calculator.CalculateSeconds(BirthDate);
                 if (!string.IsNullOrEmpty(result))
                 {
-                    ResultTextBox.Text = result + $"\nYou were born { days } days ago with is { days * 24 * 3600} seconds.";
+                    ResultTextBox.Text = result + $"\nYou were born { seconds } seconds ago which is { days } days.";
                 }
                 else
                 {
-                    ResultTextBox.Text = $"You were born { days } days ago with is { days * 24 * 3600} seconds.";
+                    ResultTextBox.Text = $"You were born { seconds } seconds ago which is { days } days.";
                 }
             }
             

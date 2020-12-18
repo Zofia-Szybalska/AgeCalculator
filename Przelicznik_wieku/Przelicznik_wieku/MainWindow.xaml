@@ -10,8 +10,7 @@
     <Border Padding="10">
         <StackPanel>
 
-            <!-- Pewnie tekst tu jeszcze zmienie to na razie robocze -->
-            <TextBlock HorizontalAlignment="Center" Text="Enter your birth date:" Margin="0 0 0 10" FontWeight="Bold" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch"/>
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Enter your birthday here:" Margin="0 0 0 10" FontWeight="Bold" ScrollViewer.HorizontalScrollBarVisibility="Auto" VerticalAlignment="Stretch"  />
 
             <Grid>
 
@@ -41,7 +40,7 @@
                         <ComboBoxItem>July</ComboBoxItem>
                         <ComboBoxItem>August</ComboBoxItem>
                         <ComboBoxItem>September</ComboBoxItem>
-                        <ComboBoxItem>Obtober</ComboBoxItem>
+                        <ComboBoxItem>October</ComboBoxItem>
                         <ComboBoxItem>November</ComboBoxItem>
                         <ComboBoxItem>December</ComboBoxItem>
                     </ComboBox>
