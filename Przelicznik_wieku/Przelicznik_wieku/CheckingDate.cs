@@ -52,8 +52,8 @@ namespace Przelicznik_wieku
                (year == current.Year && month > current.Month) || 
                (year == current.Year && month == current.Month && day > current.Day) ||
                (year == current.Year && month == current.Month && day == current.Day && hourextended[0] > current.Hour) ||
-               (year == current.Year && month == current.Month && day == current.Day && hourextended[0] == current.Hour && hourextended.Length == 2 && hourextended[1] > current.Second) ||
-               (year == current.Year && month == current.Month && day == current.Day && hourextended[0] == current.Hour && hourextended.Length == 3 && hourextended[2] == current.Second && hourextended[2] > current.Second))
+               (year == current.Year && month == current.Month && day == current.Day && hourextended[0] == current.Hour && hourextended.Length == 2 && hourextended[1] > current.Minute) ||
+               (year == current.Year && month == current.Month && day == current.Day && hourextended[0] == current.Hour && hourextended.Length == 3 && hourextended[1] == current.Minute&& hourextended[2] > current.Second))
             {
                 return "You couldn't have been born in the future, could you?";
                 
