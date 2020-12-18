@@ -37,6 +37,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "AdonisUI": {
+              "target": "Package",
+              "version": "[1.16.0, )"
+            },
+            "AdonisUI.ClassicTheme": {
+              "target": "Package",
+              "version": "[1.16.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

@@ -11,7 +11,7 @@ namespace Przelicznik_wieku
             //Sprawdza czy wszystkie argumenty zostały podane
             if(string.IsNullOrEmpty(yeartext) || string.IsNullOrEmpty(monthtext) || string.IsNullOrEmpty(daytext) || string.IsNullOrEmpty(hourtext))
             {
-                return "You have left one of the spots empty, please fill all of them.";
+                return "You have left one or more of the spots empty, please fill all of them.";
             }
             var current = DateTime.Now;
             bool yearparse = int.TryParse(yeartext, out int year);

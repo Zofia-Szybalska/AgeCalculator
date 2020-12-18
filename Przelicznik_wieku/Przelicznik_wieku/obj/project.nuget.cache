@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "bngWtO2vf//U/CRhPKMpP7EElvdLRo3zrd/CqM/itKauNucqNXdxTxPFkRC4HlCzJLlYws/CSXkaJai7sBVR2A==",
+  "dgSpecHash": "MDSwzQlODpP1QcqEhQPG5SgN2a7+X2DcwteHsSJT2JyYXHzP+ceNLGpdLWBHdJwiSLkrIQEe0POxPRKJYLeDXQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Zosia\\Documents\\AgeCalculator\\Przelicznik_wieku\\Przelicznik_wieku\\Przelicznik_wieku.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Zosia\\.nuget\\packages\\adonisui\\1.16.0\\adonisui.1.16.0.nupkg.sha512",
+    "C:\\Users\\Zosia\\.nuget\\packages\\adonisui.classictheme\\1.16.0\\adonisui.classictheme.1.16.0.nupkg.sha512",
+    "C:\\Users\\Zosia\\.nuget\\packages\\microsoft.netcore.platforms\\3.0.0\\microsoft.netcore.platforms.3.0.0.nupkg.sha512",
+    "C:\\Users\\Zosia\\.nuget\\packages\\microsoft.win32.systemevents\\4.6.0\\microsoft.win32.systemevents.4.6.0.nupkg.sha512",
+    "C:\\Users\\Zosia\\.nuget\\packages\\system.drawing.common\\4.6.0\\system.drawing.common.4.6.0.nupkg.sha512"
+  ],
   "logs": []
 }

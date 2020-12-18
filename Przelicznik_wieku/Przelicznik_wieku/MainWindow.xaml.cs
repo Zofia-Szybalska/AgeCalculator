@@ -23,7 +23,6 @@ namespace Przelicznik_wieku
         {
             InitializeComponent();
         }
-        //To może wyglądać inaczej, w sumie chciałam tylko sprawdzić czy te inne rzeczy dobrze działają
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             var result = CheckingDate.IsDateOkay(YearText.Text, MonthText.SelectedIndex + 1, DayText.Text, HourText.Text, MonthText.Text);
@@ -31,10 +30,12 @@ namespace Przelicznik_wieku
             if (!string.IsNullOrEmpty(result) && !result.StartsWith('I'))
             {
 
+                ResultTextBox.Foreground = Brushes.Red;
                 ResultTextBox.Text = result;
             }
             else
             {
+                ResultTextBox.Foreground = Brushes.White;
                 var BirthDate = Calculator.GetDateTime(YearText.Text, MonthText.SelectedIndex + 1, DayText.Text, HourText.Text);
                 var days = Calculator.CalculateDays(BirthDate);
                 var seconds = Calculator.CalculateSeconds(BirthDate);
